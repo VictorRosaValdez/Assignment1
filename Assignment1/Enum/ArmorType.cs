@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Assignment1.Enum
 {
-    enum ArmorType
+     public enum ArmorType
     {
         Cloth,
         Leather,

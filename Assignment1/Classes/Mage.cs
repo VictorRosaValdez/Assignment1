@@ -17,18 +17,46 @@ namespace Assignment1.Classes
         }
 
         // Overloading the constructor
-        public Mage(string name, int level, double strenth, string dexterity, double intelligence, double damage)
+        public Mage(string name, int level, int strenth, int dexterity, int intelligence, double damage) : base()
         {
-            this.CharacterName = name;
-            this.CharacterLevel = level;
-            this.Strenth = strenth;
-            this.Dexterity = dexterity;
-            this.Intelligence = intelligence;
-            this.Damage = damage;
+            CharacterName = name;
+            CharacterLevel = level;
+            Strength = strenth;
+            Dexterity = dexterity;
+            Intelligence = intelligence;
+            Damage = damage;
+
         }
-        public override string IncreaseLevel(int level)
+
+        /*
+         * Every time a mage levels up, they gain: 
+         * Strenght 1
+         * Dexterity 1
+         * Intelligence 5
+        
+        */
+        public override void IncreaseLevel(int level)
         {
-            throw new NotImplementedException();
+
+            //throw new NotImplementedException();
+            Strength++;
+            Dexterity++;
+            Intelligence += 5;
+            
+
+        }
+
+        /*
+    Determines the characters affinity with magic.
+    Each point of intelligence increase a mages damage by 1%.
+
+    */
+
+        public void StrengthWarrior()
+        {
+
+            Dexterity = (int)(Dexterity * 0.01);
+
         }
     }
 }

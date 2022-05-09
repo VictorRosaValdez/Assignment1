@@ -8,9 +8,30 @@ namespace Assignment1.Classes
 {
     abstract class Item
     {
+
+        //Properties
         public string Name { get; set; }
         public int RequiredLevel { get; set; }
-
         public int Slot { get; set; }
+
+        public Item()
+        {
+
+        }
+
+
+        public Item(string name, int requiredLevel, int slot) { 
+        
+            this.Name = name;
+            this.RequiredLevel = requiredLevel;
+            this.Slot = slot;
+        
+        }
+
+        public override string ToString()
+        {
+            return ($"Name: {this.Name} Required level: {this.RequiredLevel} Slot: {this.Slot}");
+        }
+
     }
 }

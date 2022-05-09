@@ -13,28 +13,32 @@ namespace Assignment1.Classes
         // Properties of Character
         public string CharacterName { get; set; }
         public int CharacterLevel { get; set; } = 1;
-        public double Strenth { get; set; }
+        public int Strength { get; set; }
 
-        public string Dexterity { get; set; }
+        public int Dexterity { get; set; }
 
-        public double Intelligence { get; set; }
+        public int Intelligence { get; set; }
 
         public double Damage { get; set; }
 
+        public string BasePrimaryAttributes { get; set; }
+
+        public string TotalPrimaryAttributes { get; set; }
+
 
         // Constructor of the class
-       public Character()
+        public Character()
         {
 
 
         }
 
         // Overloading the constructor
-       public Character(string name, int level, double strenth, string dexterity, double intelligence, double damage )
+        public Character(string name, int level, int strenth, int dexterity, int intelligence, double damage)
         {
             this.CharacterName = name;
             this.CharacterLevel = level;
-            this.Strenth = strenth;
+            this.Strength = strenth;
             this.Dexterity = dexterity;
             this.Intelligence = intelligence;
             this.Damage = damage;
@@ -43,14 +47,11 @@ namespace Assignment1.Classes
 
 
         // Abstract metho to increase level
-        public abstract string IncreaseLevel(int level);
+        public abstract void IncreaseLevel(int level);
         public override string ToString()
         {
-            return "Name: " + this.CharacterName + "Level:" + this.CharacterLevel + "Strenth:" + this.Strenth + "Dexterity:" + this.Dexterity + "Intelligence:" + this.Intelligence + "Damage:" + this.Damage;
+            return ($"Name: {this.CharacterName} Level: {this.CharacterLevel} Strength: {this.Strength} Dexterity: {this.Dexterity} Intelligence: {this.Intelligence} Damage: {this.Damage}");
         }
-
-
-
 
 
     }
