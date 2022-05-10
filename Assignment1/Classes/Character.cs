@@ -48,6 +48,11 @@ namespace Assignment1.Classes
 
         // Abstract metho to increase level
         public abstract void IncreaseLevel(int level);
+
+        // Abstract method to calculate character damage
+        public abstract void CharacterDamage(int level);
+
+
         public override string ToString()
         {
             return ($"Name: {this.CharacterName} Level: {this.CharacterLevel} Strength: {this.Strength} Dexterity: {this.Dexterity} Intelligence: {this.Intelligence} Damage: {this.Damage}");

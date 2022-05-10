@@ -51,5 +51,7 @@ namespace Assignment1.Classes
             Strength = (int)(Strength * 0.01);
 
         }
+
+        
     }
 }

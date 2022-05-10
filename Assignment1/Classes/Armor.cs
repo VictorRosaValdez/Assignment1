@@ -8,5 +8,13 @@ namespace Assignment1.Classes
 {
     class Armor : Item
     {
+
+
+
+        // Check of the armor is allowed for the character.
+        public override string NotAllowedForCharacter()
+        {
+            return "";
+        }
     }
 }

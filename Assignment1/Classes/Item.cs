@@ -19,7 +19,7 @@ namespace Assignment1.Classes
 
         }
 
-
+        // Constructor
         public Item(string name, int requiredLevel, int slot) { 
         
             this.Name = name;
@@ -28,6 +28,10 @@ namespace Assignment1.Classes
         
         }
 
+        public abstract string NotAllowedForCharacter();
+
+
+        //Override method convert the object to string
         public override string ToString()
         {
             return ($"Name: {this.Name} Required level: {this.RequiredLevel} Slot: {this.Slot}");
