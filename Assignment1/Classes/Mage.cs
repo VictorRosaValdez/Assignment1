@@ -9,25 +9,22 @@ namespace Assignment1.Classes
 {
     public class Mage : Character
     {
-        // Attribute
-        Type weaponMage = typeof(WeaponType);
-
-
+    
         // Constructor
         public Mage(string name) : base(name, 1, 1, 1, 8, 1.08)
         {
             CharacterName = name;
-           
+
 
         }
 
-        /*
-         * Every time a mage levels up, they gain: 
-         * Strenght 1
-         * Dexterity 1
-         * Intelligence 5
-        
-        */
+
+
+        /// <summary>
+        /// Every time a mage levels up, they gain: Strenght 1, Dexterity 1, Intelligence 5.
+        /// </summary>
+
+        // Override abstract method to increase level.
         public override void IncreaseLevel()
         {
             CharacterLevel++;
@@ -51,6 +48,18 @@ namespace Assignment1.Classes
 
         }
 
+        /// <summary>
+        /// Calculate the damage a character can do. They have 3 options:
+        ///  1: With weapon and armor.
+        ///  2: With weapon.
+        ///  3: Without weapon.
+        ///  The level is 1.
+        ///  Determines the physical strength of the character each point of intelligence increase a mages damage by 1%.
+        /// </summary>
+        /// <param name="level"></param>
+        /// <param name="weaponEquipped"></param>
+        /// <param name="armorEquipped"></param>
+        /// <returns>Double:The value of damage the character can do.</returns>
 
         // Override abstract method to calculate character damage
         public override double CharacterDamage(int level, bool weaponEquipped, bool armorEquipped)

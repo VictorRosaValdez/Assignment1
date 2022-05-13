@@ -16,13 +16,12 @@ namespace Assignment1.Classes
 
         }
 
-        /*
-         * Every time a rouge levels up, they gain: 
-         * Strenght 1
-         * Dexterity 4
-         * Intelligence 1
-        
-        */
+
+        /// <summary>
+        /// Every time a rouge levels up, they gain: Strenght 1, Dexterity 4, Intelligence 1
+        /// </summary>
+
+        // Override abstract method to increase level.
         public override void IncreaseLevel()
         {
 
@@ -34,11 +33,19 @@ namespace Assignment1.Classes
 
         }
 
-        /*
-      Determines the characters ability to attack with speed and nimbleness.
-      Each point of dexterity increase a rogues damage by 1%.
 
-      */
+        /// <summary>
+        /// Calculate the damage a character can do. They have 3 options:
+        ///  1: With weapon and armor.
+        ///  2: With weapon.
+        ///  3: Without weapon.
+        ///  The level is 1.
+        ///  Determines the physical strength of the character each point of dexterity increase a rouges damage by 1%.
+        /// </summary>
+        /// <param name="level"></param>
+        /// <param name="weaponEquipped"></param>
+        /// <param name="armorEquipped"></param>
+        /// <returns>Double:The value of damage the character can do.</returns>
 
         // Override abstract method to calculate character damage
         public override double CharacterDamage(int level, bool weaponEquipped, bool armorEquipped)

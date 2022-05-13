@@ -6,7 +6,6 @@ using System.Threading.Tasks;
 
 namespace Assignment1.Classes
 {
-    // Making tha base class of Character abstract
     public abstract class Character
     {
 
@@ -28,14 +27,14 @@ namespace Assignment1.Classes
         public string TotalPrimaryAttributes { get; set; }
 
 
-        // Constructor of the class
+        // Empty constructor
         public Character()
         {
 
 
         }
 
-        // Overloading the constructor
+        // Overloaded constructor
         public Character(string name, int level, int strenth, int dexterity, int intelligence, double damage)
         {
             this.CharacterName = name;
@@ -48,17 +47,17 @@ namespace Assignment1.Classes
 
 
 
-        // Abstract method to increase level
+        // Abstract method to increase level.
         public abstract void IncreaseLevel();
 
 
-        // Abstract method to chose weapon
+        // Abstract method to chose weapon.
         public abstract void ChooseWeapon();
 
-        // Abstract method to calculate character damage
+        // Abstract method to calculate character damage.
         public abstract double CharacterDamage(int level,bool weaponEquipped, bool armorEquipped);
 
-
+        //Override method to get the object values to string
         public override string ToString()
         {
             return ($"Name: {this.CharacterName} \nLevel: {this.CharacterLevel} \nStrength: {this.Strength} \nDexterity: {this.Dexterity} \nIntelligence: {this.Intelligence} \nDamage: {this.Damage}");

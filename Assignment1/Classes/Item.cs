@@ -14,16 +14,16 @@ namespace Assignment1.Classes
         public string Name { get; set; }
         public int RequiredLevel { get; set; }
         public int Slot { get; set; }
-
         public bool WeaponCanBeEquipped { get; set; }
         public bool ArmorCanBeEquipped { get; set; }
 
+        // Empty constructor
         public Item()
         {
 
         }
 
-        // Constructor
+        // Overloaded constructor
         public Item(string name, int requiredLevel, int slot) { 
         
             this.Name = name;
@@ -38,7 +38,7 @@ namespace Assignment1.Classes
         public abstract string AddItem(string nameCharacter, string weaponName);
 
 
-        //Override method convert the object to string
+        //Override method to get the object values to string
         public override string ToString()
         {
             return ($"Name: {this.Name} Required level: {this.RequiredLevel} Slot: {this.Slot}");

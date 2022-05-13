@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Assignment1.Enum
 {
-    // Enum of the weapons
+    // Enum of the weapons.
     public enum WeaponType
     {
          Axes,

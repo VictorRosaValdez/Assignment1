@@ -1,4 +1,5 @@
-﻿using Assignment1.Enum;
+﻿using Assignment1.Custom_Exceptions;
+using Assignment1.Enum;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,19 +12,17 @@ namespace Assignment1.Classes
     {
         // Attributes
         private WeaponType weaponType;
-
-        // Dictionary
-        private Dictionary<string, string> WeaponsIventory = new Dictionary<string, string>();
       
-        
+        // Properties
         public WeaponType WeaponType { get { return weaponType; } set { weaponType = value; } }
         public int Damage { get; set; }
 
+        // Empty constructor
         public Weapon()
         {
 
         }
-
+        // Overloaded constructor
         public Weapon(string name, int requiredLevel, int slot) : base ()
         {
 
@@ -33,12 +32,32 @@ namespace Assignment1.Classes
 
         }
 
+        /// <summary>
+        /// Method to check of the weapon is allowed for the character.
+        /// The arguments are two strings with the character and weapon name.
+        /// The weapon name must be identical to the enum value.
+        /// </summary>
+        /// <param name="nameCharacter"></param>
+        /// <param name="weaponName"></param>
+        /// <returns>String: Can or can not use this weapon.</returns>
 
         // Override method NotAllowedForCharacter check of the weapon is allowed for the character.
         public override string NotAllowedForCharacter(string nameCharacter, string weaponName)
         {
-           
-            
+            // Custom Exception invalid weapon
+            try
+            {
+                TestException(false);
+            }
+            catch (InvalidWeaponException ex)
+            {
+                Console.WriteLine("Custom exception: " + ex.Message);
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Generic exception: " + ex.Message);
+            }
 
             // Check for mage
             if (nameCharacter.ToLower() == "mage")
@@ -123,6 +142,15 @@ namespace Assignment1.Classes
             return "Invalid name, use one of these names: Mage, Ranger, Rouges or Warrior";
         }
 
+        /// <summary>
+        /// Method to add weapon. The arguments are two strings with character and weapon name.
+        /// This method also has the check method of weapon is allowed.
+        /// The weapon name must be identical to the enum value.
+        /// </summary>
+        /// <param name="nameCharacter"></param>
+        /// <param name="weaponName"></param>
+        /// <returns>String: New weapon equipped or you can not add this weapon.</returns>
+
         // Override method to add weapon.
         public override string AddItem(string nameCharacter, string weaponName)
         {
@@ -136,15 +164,31 @@ namespace Assignment1.Classes
             return "New weapon equipped!";
         }
 
+
+
+        /// <summary>
+        /// Customs exceptions invalid weapon.
+        /// </summary>
+        /// <param name="throwException"></param>
+        /// <exception cref="InvalidWeaponException"></exception>
+        /// <exception cref="IndexOutOfRangeException"></exception>
+        public static void TestException(bool throwException)
+        {
+
+            if (throwException)
+                throw new InvalidWeaponException();
+
+            throw new IndexOutOfRangeException();
+        }
         /*
          * Calculate the weapon damage
         */
-        public double DPS(double attckSpeed)
+        public double DPS(double attackSpeed)
         {
             string weapon = WeaponType.Axes.ToString();
 
 
-            return Damage * attckSpeed;
+            return Damage * attackSpeed;
         }
 
     }
