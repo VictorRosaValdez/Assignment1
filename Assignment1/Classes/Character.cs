@@ -7,12 +7,12 @@ using System.Threading.Tasks;
 namespace Assignment1.Classes
 {
     // Making tha base class of Character abstract
-    abstract class Character
+    public abstract class Character
     {
 
         // Properties of Character
         public string CharacterName { get; set; }
-        public int CharacterLevel { get; set; } = 1;
+        public int CharacterLevel { get; set; }
         public int Strength { get; set; }
 
         public int Dexterity { get; set; }
@@ -20,6 +20,8 @@ namespace Assignment1.Classes
         public int Intelligence { get; set; }
 
         public double Damage { get; set; }
+
+        // Slot
 
         public string BasePrimaryAttributes { get; set; }
 
@@ -46,16 +48,20 @@ namespace Assignment1.Classes
 
 
 
-        // Abstract metho to increase level
-        public abstract void IncreaseLevel(int level);
+        // Abstract method to increase level
+        public abstract void IncreaseLevel();
+
+
+        // Abstract method to chose weapon
+        public abstract void ChooseWeapon();
 
         // Abstract method to calculate character damage
-        public abstract void CharacterDamage(int level);
+        public abstract double CharacterDamage(int level,bool weaponEquipped, bool armorEquipped);
 
 
         public override string ToString()
         {
-            return ($"Name: {this.CharacterName} Level: {this.CharacterLevel} Strength: {this.Strength} Dexterity: {this.Dexterity} Intelligence: {this.Intelligence} Damage: {this.Damage}");
+            return ($"Name: {this.CharacterName} \nLevel: {this.CharacterLevel} \nStrength: {this.Strength} \nDexterity: {this.Dexterity} \nIntelligence: {this.Intelligence} \nDamage: {this.Damage}");
         }
 
 

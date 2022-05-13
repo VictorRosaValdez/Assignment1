@@ -1,5 +1,8 @@
 ﻿using Assignment1.Classes;
+using Assignment1.Custom_Execptions;
+using Assignment1.Enum;
 using System;
+using System.Collections.Generic;
 
 namespace Assignment1
 {
@@ -9,60 +12,54 @@ namespace Assignment1
         
         static void Main(string[] args)
         {
+            Console.WriteLine(WeaponType.Axes);
+            Dictionary<string, string> WeaponsIventory = new Dictionary<string, string>();
+
+            WeaponsIventory.Add("A", "Arrow");
+            WeaponsIventory.Add("B", "Bow");
 
             var instance = new Program();
+            Console.WriteLine();
             Console.WriteLine("Please enter your name:");
             string name = Console.ReadLine();
             Console.WriteLine("Welcome: " + name);
-            instance.Display();
-            
+            // Dictionary
+        
+
+            string weapon = WeaponsIventory["A"];
+            Console.WriteLine(weapon);
+
+
+            // Try catch to use MysCustomException
+            try
+            {
+                TestException(true);
+            }
+            catch (MyCustomException ex)
+            {
+                Console.WriteLine( "Custom exception: " + ex.Message);
+
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine("Generic exception: " + ex.Message);   
+            }
            
+            // Dictionary - int, item
+            // Initialize
+            // Add
+            // Remove(i)
+            // ItemsException
         }
 
-        public void Display()
+        // Call method to throw exception
+        public static void TestException(bool throwException)
         {
-            Console.WriteLine("Now enter the name of Character");
-            Console.WriteLine("You can chose one of these four characters");
-            Console.WriteLine("Mage");
-            Console.WriteLine("Ranger");
-            Console.WriteLine("Rougue");
-            Console.WriteLine("Warrior");
 
-            string nameCharacter = Console.ReadLine().ToLower();
-            Character mage = new Mage(nameCharacter, 1, 1, 1, 1, 0.00);
-            Character ranger = new Ranger(nameCharacter, 1, 1, 1, 1, 0.00);
-            Character rouge = new Rouge(nameCharacter, 1, 1, 1, 1, 0.00);
-            Character warrior = new Warrior(nameCharacter, 1, 1, 1, 1, 0.00);
-      
+            if (throwException)
+                throw new MyCustomException();
 
-            if (nameCharacter == "mage")
-            {
-
-                Console.WriteLine(mage.ToString());
-            }
-
-            if (nameCharacter == "ranger")
-            {
-
-                Console.WriteLine(ranger.ToString());
-            }
-
-            if (nameCharacter == "rogue")
-            {
-
-                Console.WriteLine(rouge.ToString());
-            }
-
-            if (nameCharacter == "warrior")
-            {
-
-                Console.WriteLine(warrior.ToString());
-            }
-
-            else {
-
-                Console.Write("This name does not exits, please enter a valid name");            
-            }
+            throw new IndexOutOfRangeException();
         }
     }
 }

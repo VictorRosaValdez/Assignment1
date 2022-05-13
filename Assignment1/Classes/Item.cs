@@ -6,13 +6,17 @@ using System.Threading.Tasks;
 
 namespace Assignment1.Classes
 {
-    abstract class Item
+    public abstract class Item
     {
+
 
         //Properties
         public string Name { get; set; }
         public int RequiredLevel { get; set; }
         public int Slot { get; set; }
+
+        public bool WeaponCanBeEquipped { get; set; }
+        public bool ArmorCanBeEquipped { get; set; }
 
         public Item()
         {
@@ -27,8 +31,11 @@ namespace Assignment1.Classes
             this.Slot = slot;
         
         }
+        // Abstract method to check if the character can use the item.
+        public abstract string NotAllowedForCharacter(string nameCharacter, string itemName);
 
-        public abstract string NotAllowedForCharacter();
+        // Abstract method to add item.
+        public abstract string AddItem(string nameCharacter, string weaponName);
 
 
         //Override method convert the object to string

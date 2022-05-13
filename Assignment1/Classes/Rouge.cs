@@ -6,17 +6,13 @@ using System.Threading.Tasks;
 
 namespace Assignment1.Classes
 {
-    class Rouge : Character
+    public class Rouge : Character
     {
-        // Overloading the constructor
-        public Rouge(string name, int level, int strenth, int dexterity, int intelligence, double damage) : base()
+        // Constructor
+        public Rouge(string name) : base(name, 1, 2, 6, 1, 1.06)
         {
             CharacterName = name;
-            CharacterLevel = level;
-            Strength = strenth;
-            Dexterity = dexterity;
-            Intelligence = intelligence;
-            Damage = damage;
+       
 
         }
 
@@ -27,12 +23,12 @@ namespace Assignment1.Classes
          * Intelligence 1
         
         */
-        public override void IncreaseLevel(int level)
+        public override void IncreaseLevel()
         {
 
-            //throw new NotImplementedException();
+            CharacterLevel++;
             Strength++;
-            Dexterity = 4;
+            Dexterity += 4;
             Intelligence++;
 
 
@@ -43,6 +39,39 @@ namespace Assignment1.Classes
       Each point of dexterity increase a rogues damage by 1%.
 
       */
+
+        // Override abstract method to calculate character damage
+        public override double CharacterDamage(int level, bool weaponEquipped, bool armorEquipped)
+        {
+            // With weapon and armor level 1
+            if (CharacterLevel == level && weaponEquipped == true && armorEquipped == true)
+            {
+                return Damage = (7.00 * 1.10) * (1.00 + ((Dexterity + 1.00) / 100.00));
+            }
+
+            // With weapon level 1
+            else if (CharacterLevel == level && weaponEquipped == true)
+            {
+                return Damage = (7.00 * 1.10) * (1.00 + (Dexterity / 100.00));
+            }
+            // Without weapon level 1
+            if (CharacterLevel == level && weaponEquipped == false)
+            {
+                return Damage = 1.00 * (1.00 + (Dexterity / 100.00));
+            }
+
+
+
+
+            return Damage;
+        }
+
+        // Overrride abstract method to choose weapon
+        public override void ChooseWeapon()
+        {
+
+
+        }
 
         public void StrengthWarrior()
         {
